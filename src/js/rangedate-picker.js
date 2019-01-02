@@ -3,18 +3,25 @@ import fecha from 'fecha'
 const defaultConfig = {}
 const defaultI18n = 'ID'
 const availableMonths = {
-  EN: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November',
-    'December'],
-  ID: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November',
-    'Desember']
+  FR: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+  EN: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+  ID: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']
 }
 
 const availableShortDays = {
+  FR: ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'],
   EN: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
   ID: ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab']
 }
 
 const presetRangeLabel = {
+  FR: {
+    today: 'Aujourd\'hui',
+    thisMonth: 'Ce mois-ci',
+    lastMonth: 'Le mois dernier',
+    lastSevenSays: '7 derniers jours',
+    lastThirtyDays: '30 derniers jours'
+  },
   EN: {
     today: 'Today',
     thisMonth: 'This Month',
@@ -32,8 +39,18 @@ const presetRangeLabel = {
 }
 
 const defaultCaptions = {
-  'title': 'Choose Dates',
-  'ok_button': 'Apply'
+  FR: {
+    'title': 'Choix de la période',
+    'ok_button': 'Valider'
+  },
+  EN: {
+    'title': 'Choose Dates',
+    'ok_button': 'Apply'
+  },
+  ID: {
+    'title': 'Choose Dates',
+    'ok_button': 'Apply'
+  }
 }
 
 const defaultStyle = {
@@ -139,7 +156,7 @@ export default {
     // options for captions are: title, ok_button
     captions: {
       type: Object,
-      default: () => defaultCaptions
+      default: () => defaultCaptions[this.i18n]
     },
     format: {
       type: String,
